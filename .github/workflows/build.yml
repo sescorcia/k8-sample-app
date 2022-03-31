@@ -32,7 +32,7 @@ jobs:
       id: build-image
       env:
         #Update to your ECR registry
-        ECR_REGISTRY: 344162451112.dkr.ecr.us-east-1.amazonaws.com
+        ECR_REGISTRY: 344162451112.dkr.ecr.us-west-1.amazonaws.com
         ECR_REPOSITORY: sample-repo
         IMAGE_TAG: sample-app${{ github.run_number }}
       run: |
