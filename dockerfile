@@ -1,15 +1,11 @@
 FROM python:3.9-slim-buster
 
 #flask dependencies
-COPY /app/requirements.txt /srv/sample-app/requirements.txt
-RUN pip install --no-cache-dir -r /srv/sample-app/requirements.txt --src /usr/local/src
-
-COPY /app/start.sh /app/gunicorn.conf.py /srv/sample-app/
-WORKDIR /srv/sample-app/
-RUN chmod +x ./start.sh
+COPY /app/requirements.txt .
+RUN pip install -r ./requirements.txt
 
 #flask app code
-COPY /app/app.py /srv/sample-app
+COPY /app/app.py .
 
 #startup script
-CMD ["./start.sh"]
+CMD ["python","app.py"]
